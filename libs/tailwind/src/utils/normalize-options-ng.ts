@@ -5,13 +5,14 @@ import type {
   TailwindSchematicsOptions,
 } from '../schematics/schema';
 import { getDependencies } from './get-dependencies';
+import { TailwindDarkMode } from '../schematics/schema';
 
 export async function normalizeOptionsNg(
   options: TailwindSchematicsOptions,
   tree: Tree
 ): Promise<NormalizedTailwindSchematicsOptions> {
   const { plugins, dependencies } = getDependencies(options.plugins);
-  const darkMode = options.darkMode || 'none';
+  const darkMode: TailwindDarkMode = options.darkMode || 'none';
 
   const workspace = await getWorkspace(tree);
   const sourceRoot = workspace.projects[options.project]?.sourceRoot;

@@ -24,7 +24,24 @@
       "type": "string",
       "enum": ["none", "class", "media"],
       "default": "none",
-      "x-prompt": "Would you like to enable dark mode?"
+      "x-prompt": {
+        "message": "Would you like to enable dark mode?",
+        "type": "list",
+        "items": [
+          {
+            "value": "none",
+            "label": "No dark mode"
+          },
+          {
+            "value": "class",
+            "label": "Class mode"
+          },
+          {
+            "value": "media",
+            "label": "Media mode"
+          }
+        ]
+      }
     },
     "plugins": {
       "oneOf": [
